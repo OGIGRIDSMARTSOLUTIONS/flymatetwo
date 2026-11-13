@@ -34,3 +34,25 @@ permanent identifiers before an app-store release.
 
 Vercel can host a future FlyMate API or web dashboard. This package contains
 the native mobile source. It currently runs without an API.
+
+## TypeScript modules and rate API
+
+Booking, tracking, verification, rates, and shared UI have separate folders
+under src. Demo bookings and delivery confirmation are stored in memory.
+The booking screen can request a quote from the Vercel function at POST
+/api/rates. The web app uses the same origin. Native builds default to
+https://flymatetwo.vercel.app. Set EXPO_PUBLIC_API_URL before building
+to use a different API host.
+
+The demo provider uses kilograms internally, accepts pounds, and computes
+volumetric weight using length × width × height in centimeters divided by
+5,000. Billable weight is the higher of actual and volumetric weight, rounded
+up to the next 0.5 kg increment. The amount is a fictional NGN estimate
+based on shipment type and billable weight. A live carrier integration
+would implement RateProvider with carrier-specific rules and server-side
+credentials.
+
+Run npm run typecheck and npx expo export --platform web before pushing.
+Deploy the repository root to Vercel using the included vercel.json. Test
+quotes on the deployed web app or in an environment serving the function.
+Rebuild the Android APK to test the changes on a phone.
