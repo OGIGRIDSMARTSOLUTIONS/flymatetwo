@@ -1,0 +1,31 @@
+{
+  "name": "flymate-photo-service",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "photo:check": "node --env-file-if-exists=.env photos/verifyPackagePhoto.mts",
+    "start": "node --env-file-if-exists=.env start.mts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test delivery/workflow.test.mts",
+    "staff:create": "node --env-file-if-exists=.env operations/provision.mts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cloudinary": "2.11.0",
+    "pg": "8.23.1",
+    "sharp": "0.35.5",
+    "zod": "4.6.7"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "typescript": "6.0.3"
+  }
+}

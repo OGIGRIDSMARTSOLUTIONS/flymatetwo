@@ -1,0 +1,7 @@
+.env*
+.expo/
+.vercel/
+node_modules/
+dist/
+server/
+operations/
